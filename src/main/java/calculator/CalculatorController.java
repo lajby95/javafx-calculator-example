@@ -48,7 +48,10 @@ public class CalculatorController {
            double number2 = Double.parseDouble(display.getText());
            double result = calculator.calculate(number1, number2, operator);
            System.out.println("result: "+result);
-           BigDecimal decimal = new BigDecimal(result).setScale(15, RoundingMode.HALF_UP).stripTrailingZeros();
+           BigDecimal decimal = new BigDecimal(result)
+                   .setScale(15, RoundingMode.HALF_UP)
+                   .setScale(14, RoundingMode.HALF_UP)
+                   .stripTrailingZeros();
            display.setText(decimal.toPlainString());
            operator = "";
         } else {
